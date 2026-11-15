@@ -2,13 +2,13 @@
 
 **BIL485 Derin Öğrenme — Ödev 2: Computer Vision**
 
-Bu projede açık kaynak **CIFAR-10** veri seti (10 sınıf: uçak, otomobil, kuş, kedi, geyik, köpek, kurbağa, at, gemi, kamyon) üzerinde, **ImageNet'te ön-eğitilmiş ResNet18** modeli ince ayar (fine-tuning) ile eğitilmiştir. Model; Accuracy, Precision, Recall, F1, karışıklık matrisi, öğrenme eğrileri, eğitim ve çıkarım süresi ile değerlendirilmiş, telefonla çekilmiş 5 gerçek fotoğrafla test edilmiş ve **Gradio** ile web arayüzü olarak sunulmuştur.
+Bu projede açık kaynak **CIFAR-10** veri seti (10 sınıf: uçak, otomobil, kuş, kedi, geyik, köpek, kurbağa, at, gemi, kamyon) üzerinde, **ImageNet'te ön-eğitilmiş ResNet18** modeli ince ayar (fine-tuning) ile eğitilmiştir. Model; Accuracy, Precision, Recall, F1, karışıklık matrisi, öğrenme eğrileri, eğitim ve çıkarım süresi ile değerlendirilmiş, 5 gerçek dünya fotoğrafıyla test edilmiş ve **Gradio** ile web arayüzü olarak sunulmuştur.
 
 ## Dosyalar
 
 | Dosya | Açıklama |
 |---|---|
-| `BIL485_Odev2_CIFAR10_ResNet18.ipynb` | Tüm akış: veri, model, eğitim, değerlendirme, telefon testi, Gradio, rapor özeti |
+| `BIL485_Odev2_CIFAR10_ResNet18.ipynb` | Tüm akış: veri, model, eğitim, değerlendirme, gerçek fotoğraf testi, Gradio, rapor özeti |
 | `app.py` | `best_model.pth` dosyasını yükleyen bağımsız Gradio uygulaması |
 | `requirements.txt` | Gerekli Python paketleri |
 | `Rapor_Sablonu_Taslak.md` | Ödev raporu taslağı |
@@ -18,10 +18,9 @@ Bu projede açık kaynak **CIFAR-10** veri seti (10 sınıf: uçak, otomobil, ku
 1. Notebook'u Colab'da aç.
 2. **Runtime > Change runtime type > T4 GPU** seç.
 3. **Runtime > Run all**. (Toplam ~15–20 dk.)
-4. Yükleme butonu çıkınca telefonla çektiğin 5 fotoğrafı seç (`foto1.jpg … foto5.jpg` diye adlandırmak önerilir).
-5. `GERCEK_ETIKETLER` sözlüğüne gerçek sınıfları yaz, o hücreyi tekrar çalıştır.
-6. Gradio hücresindeki `…gradio.live` linkinden arayüzü dene.
-7. Son hücre `sonuclar.zip` dosyasını indirir (grafikler, metrikler, `rapor_ozeti.txt`, `best_model.pth`).
+4. Gerçek fotoğraf testi `gercek_fotograflar/` klasöründeki 5 fotoğrafı otomatik kullanır.
+5. Gradio hücresindeki `…gradio.live` linkinden arayüzü dene.
+6. Son hücre `sonuclar.zip` dosyasını indirir (grafikler, metrikler, `rapor_ozeti.txt`, `best_model.pth`).
 
 ## Gradio uygulamasını yerelde çalıştırma
 
@@ -56,11 +55,11 @@ Notebook sonundaki **RAPOR ÖZETİ** bloğundan doldurulacak:
 | Eğitim süresi | _…_ |
 | Çıkarım süresi (batch=1) | _… ms/görüntü_ |
 | Verim (batch=256) | _… görüntü/s_ |
-| Telefon fotoğrafları (top-1) | _…/5_ |
+| Gerçek fotoğraflar (top-1) | _…/5_ |
 
 ![Öğrenme eğrileri](sonuclar/learning_curves.png)
 ![Karışıklık matrisi](sonuclar/confusion_matrix.png)
-![Telefon testi](sonuclar/phone_test_grid.png)
+![Gerçek fotoğraf testi](sonuclar/gercek_test_grid.png)
 
 ## Kaynak
 
