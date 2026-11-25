@@ -62,6 +62,7 @@ En zayıf sınıflar kedi (F1 0.872) ve köpek (F1 0.898); en çok karışan çi
 ![Öğrenme eğrileri](sonuclar/learning_curves.png)
 ![Karışıklık matrisi](sonuclar/confusion_matrix.png)
 ![Gerçek fotoğraf testi](sonuclar/gercek_test_grid.png)
+![Gradio arayüzü](sonuclar/gradio_arayuz.png)
 
 ## Kaynak
 
