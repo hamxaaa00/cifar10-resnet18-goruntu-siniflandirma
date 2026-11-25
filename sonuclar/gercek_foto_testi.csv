@@ -1,0 +1,6 @@
+fotoğraf,gerçek,tahmin,güven (%),doğru mu?,top-3 içinde mi?,top-3
+foto1.jpg,ship,airplane,74.0,HAYIR,EVET,"airplane:74%, ship:25%, bird:1%"
+foto2.jpg,bird,bird,99.7,EVET,EVET,"bird:100%, airplane:0%, cat:0%"
+foto3.jpg,airplane,airplane,99.8,EVET,EVET,"airplane:100%, bird:0%, automobile:0%"
+foto4.jpg,truck,truck,53.3,EVET,EVET,"truck:53%, automobile:46%, cat:1%"
+foto5.jpg,cat,bird,72.0,HAYIR,EVET,"bird:72%, cat:20%, airplane:5%"

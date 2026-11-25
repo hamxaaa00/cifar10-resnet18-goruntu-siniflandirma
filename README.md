@@ -26,12 +26,12 @@ Bu projede açık kaynak **CIFAR-10** veri seti (10 sınıf: uçak, otomobil, ku
 
 ```bash
 pip install -r requirements.txt
-# sonuclar.zip içindeki best_model.pth dosyasını app.py ile aynı klasöre koy
+# eğitilmiş model (best_model.pth) repoda hazırdır
 python app.py            # http://127.0.0.1:7860
 python app.py --share    # geçici public link
 ```
 
-> Not: `best_model.pth` ~45 MB'tır; GitHub'ın 100 MB sınırının altında olduğu için repoya doğrudan eklenebilir.
+> Not: `best_model.pth` (~45 MB) Colab eğitiminde en yüksek doğrulama doğruluğuna ulaşan modeldir.
 
 ## Yöntem (özet)
 
@@ -43,19 +43,21 @@ python app.py --share    # geçici public link
 
 ## Sonuçlar
 
-Notebook sonundaki **RAPOR ÖZETİ** bloğundan doldurulacak:
+Google Colab, Tesla T4 GPU üzerinde elde edilen sonuçlar (test seti: 10.000 görüntü):
 
 | Metrik | Değer |
 |---|---|
-| Test Accuracy | _…_ |
-| Precision (macro) | _…_ |
-| Recall (macro) | _…_ |
-| F1 (macro) | _…_ |
-| En iyi Val Accuracy (epoch) | _…_ |
-| Eğitim süresi | _…_ |
-| Çıkarım süresi (batch=1) | _… ms/görüntü_ |
-| Verim (batch=256) | _… görüntü/s_ |
-| Gerçek fotoğraflar (top-1) | _…/5_ |
+| Test Accuracy | **0.9414** |
+| Precision (macro) | 0.9414 |
+| Recall (macro) | 0.9414 |
+| F1 (macro) | 0.9413 |
+| En iyi Val Accuracy (epoch) | 0.9450 (4) |
+| Eğitim süresi | 1.70 dk (4 epoch, ~25 s/epoch) |
+| Çıkarım süresi (batch=1) | 3.13 ms/görüntü |
+| Verim (batch=256) | 8928 görüntü/s |
+| Gerçek fotoğraflar (top-1 / top-3) | 3/5 / 5/5 |
+
+En zayıf sınıflar kedi (F1 0.872) ve köpek (F1 0.898); en çok karışan çiftler kedi↔köpek, kamyon↔otomobil ve gemi↔uçak. Gerçek fotoğraf testinde kuş, uçak ve kamyon doğru; gemi "uçak", kedi "kuş" olarak tahmin edildi (doğru sınıf her ikisinde de 2. sırada). Ayrıntılı değerlendirme rapordadır.
 
 ![Öğrenme eğrileri](sonuclar/learning_curves.png)
 ![Karışıklık matrisi](sonuclar/confusion_matrix.png)
